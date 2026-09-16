@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-river-50: #F4F9FD;
+  --color-river-100: #E6F3FB;
+  --color-river-200: #C7E4F7;
+  --color-river-300: #93CEF1;
+  --color-river-400: #59B2E8;
+  --color-river-500: #2B8EE8;
+  --color-river-600: #1C71C6;
+  --color-river-700: #175AA0;
+  --color-river-800: #174C83;
+  --color-river-900: #0E2E50;
+  --color-river-950: #081C33;
+
+  --color-nature-50: #F0FDF4;
+  --color-nature-100: #DCFCE7;
+  --color-nature-200: #BBF7D0;
+  --color-nature-300: #86EFAC;
+  --color-nature-400: #4ADE80;
+  --color-nature-500: #10B981;
+  --color-nature-600: #059669;
+  --color-nature-700: #047857;
+
+  --color-canvas: #F6FAFC;
+  --color-canvas-elevated: #FFFFFF;
+  --color-ink-primary: #0A1D33;
+  --color-ink-secondary: #3B536E;
+  --color-ink-muted: #6E859E;
+  --color-hairline: rgba(43, 142, 232, 0.12);
+}
+
+:root {
+  font-family: var(--font-sans);
+  color: var(--color-ink-primary);
+  background-color: var(--color-canvas);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Pine Labs inspired typography and masked transitions */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Glassmorphism */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(43, 142, 232, 0.14);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(43, 142, 232, 0.12);
+  box-shadow: 0 10px 30px -10px rgba(14, 46, 80, 0.05);
+}
+
+.glass-card:hover {
+  border-color: rgba(43, 142, 232, 0.3);
+  box-shadow: 0 20px 40px -15px rgba(43, 142, 232, 0.12);
+}
+
+.glass-dark {
+  background: rgba(11, 27, 45, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* River Gradient Text */
+.text-river-gradient {
+  background: linear-gradient(135deg, #1C71C6 0%, #2B8EE8 50%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-nature-gradient {
+  background: linear-gradient(135deg, #059669 0%, #10B981 60%, #34D399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F6F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBDCE9;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9DBED8;
+}
