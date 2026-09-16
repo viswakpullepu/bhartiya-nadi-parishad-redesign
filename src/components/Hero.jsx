@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck, Compass, Sparkles, Play, FileDown, CheckCircle2 } from 'lucide-react';
-import { MaskedHeading } from './PineLabsAnimations';
 
 export default function Hero({ onOpenJoinModal, onPlayVideo }) {
   return (
@@ -31,23 +30,18 @@ export default function Hero({ onOpenJoinModal, onPlayVideo }) {
               <span className="text-[11px] sm:text-xs font-medium text-[#10B981] flex-shrink-0">Water Vision 2047</span>
             </motion.div>
 
-            {/* Masked Headline (Pine Labs style with immediate={true} to guarantee zero blank empty spaces) */}
-            <div className="space-y-1 sm:space-y-2">
-              <div>
-                <MaskedHeading delay={0.05} immediate={true}>
-                  <h1 className="font-serif text-4xl xs:text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#0A1D33] leading-[1.1] sm:leading-[1.05]">
-                    Rejuvenating India's
-                  </h1>
-                </MaskedHeading>
-              </div>
-              <div>
-                <MaskedHeading delay={0.15} immediate={true}>
-                  <h1 className="font-serif text-4xl xs:text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-river-gradient leading-[1.1] sm:leading-[1.05]">
-                    Sacred Lifelines.
-                  </h1>
-                </MaskedHeading>
-              </div>
-            </div>
+            {/* Main Headline (Rock-solid visibility, smooth fluid entrance) */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.75, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="font-serif text-4xl xs:text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#0A1D33] leading-[1.12] sm:leading-[1.06]"
+            >
+              Rejuvenating India's{' '}
+              <span className="text-river-gradient block sm:inline">
+                Sacred Lifelines.
+              </span>
+            </motion.h1>
 
             {/* Subheading */}
             <motion.p
