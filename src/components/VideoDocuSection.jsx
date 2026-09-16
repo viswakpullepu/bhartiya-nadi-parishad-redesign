@@ -49,35 +49,29 @@ const videosList = [
 
 export default function VideoDocuSection() {
   const [activeVideoId, setActiveVideoId] = useState(videosList[0].id);
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const handleOpenVideo = (id) => {
-    setActiveVideoId(id);
-    setModalOpen(true);
-  };
 
   return (
-    <section id="documentaries" className="py-24 md:py-32 bg-[#F6FAFC] relative">
+    <section id="documentaries" className="py-16 sm:py-24 md:py-32 bg-[#F6FAFC] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 text-left">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6 text-left">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#DCFCE7] text-[#059669] text-xs font-semibold uppercase tracking-wider mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#DCFCE7] text-[#059669] text-[11px] sm:text-xs font-semibold uppercase tracking-wider mb-2 sm:mb-3">
               <Video className="w-3.5 h-3.5" />
               <span>Broadcast & Field Films</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A1D33] tracking-tight">
+            <h2 className="font-serif text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A1D33] tracking-tight">
               Documentaries & River Talks
             </h2>
           </div>
-          <p className="text-sm sm:text-base text-[#425B76] max-w-md">
+          <p className="text-xs sm:text-sm md:text-base text-[#425B76] max-w-md">
             Watch real ground expeditions, keynote speeches from Bharat Mandapam, and interviews with India's leading environmental stewards.
           </p>
         </div>
 
         {/* Featured Video Player Box */}
-        <div className="relative rounded-3xl overflow-hidden border border-[#2B8EE8]/20 bg-[#0A1D33] shadow-2xl mb-12">
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#2B8EE8]/20 bg-[#0A1D33] shadow-xl sm:shadow-2xl mb-8 sm:mb-12">
           <div className="aspect-video w-full max-h-[540px]">
             <iframe
               src={`https://www.youtube.com/embed/${activeVideoId}?autoplay=0&rel=0`}
@@ -90,13 +84,13 @@ export default function VideoDocuSection() {
         </div>
 
         {/* Video Playlist Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {videosList.map((vid) => {
             const isPlaying = vid.id === activeVideoId;
             return (
               <SpotlightCard
                 key={vid.id}
-                className={`p-5 text-left cursor-pointer transition-all ${
+                className={`p-4 sm:p-5 text-left cursor-pointer transition-all active:scale-[0.99] ${
                   isPlaying ? 'ring-2 ring-[#2B8EE8]' : ''
                 }`}
               >
@@ -106,26 +100,26 @@ export default function VideoDocuSection() {
                 >
                   <div>
                     {/* Thumbnail preview */}
-                    <div className="relative rounded-xl overflow-hidden aspect-video mb-4 bg-slate-900 group">
+                    <div className="relative rounded-xl overflow-hidden aspect-video mb-3 sm:mb-4 bg-slate-900 group">
                       <img
                         src={`https://img.youtube.com/vi/${vid.id}/hqdefault.jpg`}
                         alt={vid.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                       />
                       <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                        <div className="w-12 h-12 rounded-full bg-white/90 text-[#0A1D33] flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-white transition-all">
-                          <Play className="w-5 h-5 ml-0.5 fill-current text-[#2B8EE8]" />
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 text-[#0A1D33] flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-white transition-all">
+                          <Play className="w-4 h-4 sm:w-5 sm:h-5 ml-0.5 fill-current text-[#2B8EE8]" />
                         </div>
                       </div>
-                      <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/70 text-white text-[10px] font-mono">
+                      <span className="absolute bottom-2 right-2 px-1.5 py-0.5 rounded bg-black/70 text-white text-[9px] sm:text-[10px] font-mono">
                         {vid.duration}
                       </span>
                     </div>
 
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#059669] block mb-1">
+                    <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#059669] block mb-1">
                       {vid.tag}
                     </span>
-                    <h4 className="font-serif text-base font-bold text-[#0A1D33] leading-snug line-clamp-2 mb-2">
+                    <h4 className="font-serif text-sm sm:text-base font-bold text-[#0A1D33] leading-snug line-clamp-2 mb-1.5">
                       {vid.title}
                     </h4>
                     <p className="text-xs text-[#425B76] line-clamp-2 leading-relaxed">
@@ -133,7 +127,7 @@ export default function VideoDocuSection() {
                     </p>
                   </div>
 
-                  <div className="pt-3 mt-3 border-t border-gray-100 flex items-center justify-between text-xs text-[#1C71C6] font-semibold">
+                  <div className="pt-2.5 sm:pt-3 mt-2.5 sm:mt-3 border-t border-gray-100 flex items-center justify-between text-xs text-[#1C71C6] font-semibold">
                     <span>{isPlaying ? '● Currently Playing' : 'Click to Watch'}</span>
                     <Play className="w-3 h-3 fill-current" />
                   </div>
