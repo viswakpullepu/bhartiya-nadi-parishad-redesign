@@ -3,15 +3,18 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 /**
  * Pine Labs inspired Masked Text Reveal
- * Text translates from 100% Y through an overflow-hidden mask
+ * Text translates from 100% Y through an overflow-hidden mask.
+ * When `immediate={true}` (for Hero/above the fold), it animates on mount
+ * rather than waiting for a scroll intersection event.
  */
-export function MaskedHeading({ children, className = '', delay = 0 }) {
+export function MaskedHeading({ children, className = '', delay = 0, immediate = false }) {
   return (
-    <div className="overflow-hidden inline-block leading-tight">
+    <div className="overflow-hidden inline-block leading-tight max-w-full">
       <motion.div
-        initial={{ y: '110%', opacity: 0 }}
-        whileInView={{ y: '0%', opacity: 1 }}
-        viewport={{ once: true, margin: '-50px' }}
+        initial={{ y: '100%', opacity: 0 }}
+        animate={immediate ? { y: '0%', opacity: 1 } : undefined}
+        whileInView={immediate ? undefined : { y: '0%', opacity: 1 }}
+        viewport={immediate ? undefined : { once: true, amount: 0.1 }}
         transition={{
           duration: 0.85,
           delay: delay,
@@ -33,13 +36,13 @@ export function ScrollWordReveal({ text, className = '' }) {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start 0.85', 'end 0.4'],
+    offset: ['start 0.9', 'end 0.3'],
   });
 
   const words = text.split(' ');
 
   return (
-    <p ref={containerRef} className={`flex flex-wrap gap-x-2.5 gap-y-1.5 ${className}`}>
+    <p ref={containerRef} className={`flex flex-wrap gap-x-2 gap-y-1.5 ${className}`}>
       {words.map((word, i) => {
         const start = i / words.length;
         const end = start + 1 / words.length;
@@ -50,7 +53,7 @@ export function ScrollWordReveal({ text, className = '' }) {
 }
 
 function Word({ word, progress, range }) {
-  const opacity = useTransform(progress, range, [0.2, 1]);
+  const opacity = useTransform(progress, range, [0.25, 1]);
   const color = useTransform(progress, range, ['#6E859E', '#0A1D33']);
 
   return (

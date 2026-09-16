@@ -31,17 +31,17 @@ export default function Hero({ onOpenJoinModal, onPlayVideo }) {
               <span className="text-[11px] sm:text-xs font-medium text-[#10B981] flex-shrink-0">Water Vision 2047</span>
             </motion.div>
 
-            {/* Masked Headline (Pine Labs style, scaled for mobile screens) */}
-            <div className="space-y-0.5 sm:space-y-1">
+            {/* Masked Headline (Pine Labs style with immediate={true} to guarantee zero blank empty spaces) */}
+            <div className="space-y-1 sm:space-y-2">
               <div>
-                <MaskedHeading delay={0.1}>
+                <MaskedHeading delay={0.05} immediate={true}>
                   <h1 className="font-serif text-4xl xs:text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#0A1D33] leading-[1.1] sm:leading-[1.05]">
                     Rejuvenating India's
                   </h1>
                 </MaskedHeading>
               </div>
               <div>
-                <MaskedHeading delay={0.25}>
+                <MaskedHeading delay={0.15} immediate={true}>
                   <h1 className="font-serif text-4xl xs:text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-river-gradient leading-[1.1] sm:leading-[1.05]">
                     Sacred Lifelines.
                   </h1>
@@ -53,7 +53,7 @@ export default function Hero({ onOpenJoinModal, onPlayVideo }) {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
               className="text-base sm:text-lg lg:text-xl text-[#3B536E] max-w-2xl font-normal leading-relaxed"
             >
               Uniting river activists, hydrologists, policymakers, and communities across 100+ basins to restore pure, uninterrupted, and perennial river flow by 2047.
@@ -63,7 +63,7 @@ export default function Hero({ onOpenJoinModal, onPlayVideo }) {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.55 }}
+              transition={{ duration: 0.7, delay: 0.45 }}
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1"
             >
               <button
@@ -83,11 +83,11 @@ export default function Hero({ onOpenJoinModal, onPlayVideo }) {
               </a>
             </motion.div>
 
-            {/* Trust Indicators / Stats (Clean grid on all mobile sizes) */}
+            {/* Trust Indicators / Stats */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
               className="pt-5 grid grid-cols-3 gap-3 sm:gap-6 border-t border-[#2B8EE8]/15 max-w-lg"
             >
               <div>
@@ -113,7 +113,7 @@ export default function Hero({ onOpenJoinModal, onPlayVideo }) {
             className="lg:col-span-5 relative mt-4 lg:mt-0"
           >
             <div className="relative mx-auto rounded-3xl overflow-hidden border border-[#2B8EE8]/20 shadow-xl shadow-[#2B8EE8]/15 bg-white p-2">
-              {/* Media Container: Responsive height for mobile */}
+              {/* Media Container */}
               <div className="relative h-[300px] xs:h-[350px] sm:h-[440px] lg:h-[540px] w-full rounded-2xl overflow-hidden bg-slate-900 group">
                 <video
                   autoPlay
@@ -171,7 +171,7 @@ export default function Hero({ onOpenJoinModal, onPlayVideo }) {
               </div>
             </div>
 
-            {/* Floating Badge (Adapted for both desktop float and mobile neat placement) */}
+            {/* Floating Badge */}
             <div className="mt-3 sm:mt-0 sm:absolute sm:-bottom-6 sm:-left-6 flex items-center gap-2.5 bg-white p-3 sm:p-3.5 rounded-2xl border border-[#2B8EE8]/20 shadow-md sm:shadow-xl shadow-[#0E2E50]/8 text-left">
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#ECFDF5] flex items-center justify-center text-[#10B981] flex-shrink-0">
                 <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6" />
